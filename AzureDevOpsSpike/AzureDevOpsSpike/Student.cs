@@ -59,12 +59,12 @@ namespace AzureDevOpsSpike
             } 
         }
 
-        public Student(string index, string firstName, string lastName, double gPA)
+        public Student(string index, string firstName, string lastName, double gpa)
         {
             Index = index;
             FirstName = firstName;
             LastName = lastName;
-            GPA = gPA;
+            GPA = gpa;
         }
     }
 }
