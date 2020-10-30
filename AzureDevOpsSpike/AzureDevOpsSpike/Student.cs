@@ -56,6 +56,7 @@ namespace AzureDevOpsSpike
             {
                 if (value < 0)
                     throw new ArgumentOutOfRangeException(nameof(GPA), "Must be a positive number.");
+                _gpa = value;
             } 
         }
 
