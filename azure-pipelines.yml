@@ -1,0 +1,32 @@
+# ASP.NET Core
+# Build and test ASP.NET Core projects targeting .NET Core.
+# Add steps that run tests, create a NuGet package, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger: none
+
+pr: none
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  buildConfiguration: 'Release'
+
+schedules:
+- cron: "0 0 * * *"
+  displayName: Daily midnight build
+  branches:
+    include:
+    - master
+
+steps:
+- powershell: |
+   curl \
+     -X PUT \
+     -H "Accept: application/vnd.github.v3+json" \
+     https://api.github.com/orgs/ORG/teams/TEAM_SLUG/repos/octocat/hello-world \
+     -d '{"permission":"permission"}'
+   
+  displayName: 'Manage team permission'
+
